@@ -1,14 +1,15 @@
 import type { RouteParams, RouteRecordRaw } from 'vue-router'
 import { createRouter, createWebHashHistory } from 'vue-router'
+import Home from './pages/Home.vue'
 
 export type AppRouteNames = 'jobs' | 'contacts'
 
 export const routes: RouteRecordRaw[] = [
-  // {
-  //   name: 'jobs',
-  //   path: '/',
-  //   component: Home,
-  // },
+  {
+    name: 'jobs',
+    path: '/',
+    component: Home,
+  },
 ]
 export const router = createRouter({
   history: createWebHashHistory(),
