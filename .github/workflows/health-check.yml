@@ -15,20 +15,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          version: 8
-          run_install: false
+          bun-version: latest # or "latest", "canary", <sha>
 
       # https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          cache: pnpm
+          cache: bun
 
       - name: Install dependencies
-        run: pnpm install
+        run: bun install
 
       - name: E2E test
-        run: pnpm test:e2e:prod
+        run: bun test:e2e:prod

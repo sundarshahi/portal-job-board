@@ -16,25 +16,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          version: 8
-          run_install: false
+          bun-version: latest # or "latest", "canary", <sha>
 
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          cache: pnpm
+          cache: bun
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: bun install --no-frozen-lockfile
 
       - name: TypeScript check
-        run: pnpm lint
+        run: bun lint
 
       - name: Eslint check
-        run: pnpm lint
+        run: bun lint
 
   unit_test:
     name: Unit test
@@ -46,23 +45,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          version: 8
-          run_install: false
+          bun-version: latest # or "latest", "canary", <sha>
 
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          cache: pnpm
+          cache: bun
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: bun install --no-frozen-lockfile
 
       - name: Get cypress version
         id: cypress-version
-        run: echo "version=$(pnpm info cypress version)" >> $GITHUB_OUTPUT
+        run: echo "version=$(bun info cypress version)" >> $GITHUB_OUTPUT
 
       - name: Cache cypress binary
         id: cache-cypress-binary
@@ -73,10 +71,10 @@ jobs:
 
       - name: Install cypress binary
         if: steps.cache-cypress-binary.outputs.cache-hit != 'true'
-        run: pnpm cypress install
+        run: bun cypress install
 
       - name: Unit test
-        run: pnpm test:unit
+        run: bun test:unit
 
       - name: Update coverage report
         uses: codecov/codecov-action@v4
@@ -93,23 +91,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v3
+      - uses: oven-sh/setup-bun@v1
         with:
-          version: 8
-          run_install: false
+          bun-version: latest # or "latest", "canary", <sha>
 
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
-          cache: pnpm
+          cache: bun
 
       - name: Install dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: bun install --no-frozen-lockfile
 
       - name: Get cypress version
         id: cypress-version
-        run: echo "version=$(pnpm info cypress version)" >> $GITHUB_OUTPUT
+        run: echo "version=$(bun info cypress version)" >> $GITHUB_OUTPUT
 
       - name: Cache cypress binary
         id: cache-cypress-binary
@@ -120,7 +117,7 @@ jobs:
 
       - name: Install cypress binary
         if: steps.cache-cypress-binary.outputs.cache-hit != 'true'
-        run: pnpm cypress install
+        run: bun cypress install
 
       - name: E2E test
-        run: pnpm test:e2e:ci
+        run: bun test:e2e:ci
