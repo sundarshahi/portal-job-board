@@ -1,3 +1,9 @@
+<script setup lang="ts">
+import Hero from './components/Hero.vue'
+</script>
+
 <template>
-  <div class="text-green-700 text-xl">Job Board</div>
+  <div>
+   <Hero/>
+  </div>
 </template>
