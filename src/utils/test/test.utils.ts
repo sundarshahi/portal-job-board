@@ -8,9 +8,11 @@ import type { SetupServer } from 'msw/node'
 import { setupServer } from 'msw/node'
 import { afterAll, afterEach, beforeAll } from 'vitest'
 import AppLink from '@/components/AppLink.vue'
+import { routes } from '@/router'
 
 export function createTestRouter(base?: string): Router {
   return createRouter({
+    routes,
     history: createMemoryHistory(base),
   })
 }
