@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <Hero />
-  </div>
+  <Layout />
 </template>
 
 <script setup lang="ts">
-import Hero from '@/components/Hero.vue'
+import Layout from '@/components/Layout.vue'
 </script>
