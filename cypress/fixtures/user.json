@@ -1,0 +1,12 @@
+{
+  "user": {
+    "id": 71965,
+    "email": "sundar@example.com",
+    "createdAt": "2024-03-02T03:22:54.038Z",
+    "updatedAt": "2020-03-07T15:02:49.629Z",
+    "username": "sundar",
+    "bio": "aaa22",
+    "image": null,
+    "token": "fake_token"
+  }
+}

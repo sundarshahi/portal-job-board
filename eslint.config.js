@@ -2,7 +2,11 @@ import defineConfig from '@sundarshahi/eslint-config'
 
 export default defineConfig({
   typescript: {
-    tsconfigPath: ['tsconfig.json', 'tsconfig.node.json'],
+    tsconfigPath: [
+      'tsconfig.json',
+      'tsconfig.node.json',
+      'cypress/e2e/tsconfig.json',
+    ],
   },
   vue: {
     sfcBlocks: {

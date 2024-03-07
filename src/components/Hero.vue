@@ -4,7 +4,7 @@
     :style="{ backgroundImage: `url(${bg})` }"
   >
     <div class="flex flex-col gap-8 z-50">
-      <span class="text-5xl font-semibold text-indigo-100"> Welcome To Job Board</span>
+      <h5 class="text-5xl font-semibold text-indigo-100"> Welcome To Job Board</h5>
       <p class="text-gray-200 max-w-[600px] leading-7">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde dolore, ab
         consequuntur amet dolores itaque deserunt optio dicta odio sequi, ipsum debitis
