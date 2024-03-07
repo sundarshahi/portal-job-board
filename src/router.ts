@@ -6,7 +6,7 @@ export type AppRouteNames = 'jobs' | 'contacts'
 
 export const routes: RouteRecordRaw[] = [
   {
-    name: 'jobs',
+    name: 'job-board',
     path: '/',
     component: Home,
   },
